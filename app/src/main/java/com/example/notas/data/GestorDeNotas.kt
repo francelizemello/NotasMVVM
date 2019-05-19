@@ -10,7 +10,5 @@ class GestorDeNotas {
         Nota(id = 0, text = "Nota 4")
     )
 
-    fun getNotas() {
-
-    }
+    fun getNotas() = data
 }

@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notas.ui.NotasAdapter
 import com.example.notas.R
+import com.example.notas.ui.NotasViewHolder
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val notasAdapter: NotasAdapter by lazy {
+    private  lateinit var notasViewHolder: NotasViewHolder
+   private val notasAdapter: NotasAdapter by lazy {
         NotasAdapter()
     }
 
@@ -19,6 +23,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(toolBar)
+
+        recycle.adapter = notasAdapter
+        recycle.layoutManager = LinearLayoutManager(this)
+
+        //inicializar view model
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
